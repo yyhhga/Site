@@ -7,7 +7,7 @@ export enum sectionType {
    Variant2,
 }
 
-export type cssRules = 'bgColor' | 'gradient' | 'bgImage'
+type cssRules = 'bgColor' | 'gradient' | 'bgImage'
 
 export type cssOptionsRecord = {
    [K in cssRules]?: string
@@ -21,21 +21,19 @@ type sectionProps = {
 export const Section: FC<sectionProps> = ({
    type,
    options,
-   ...children
 }) => {
    const i = 0
    const classNames = options
       ? Object.entries(options)
-           .map(([key, value]) => `${key}:${value}`)
-           .join('; ') + ';'
-      : 'no'
+         .map(([key, value]) => `${key}:${value}`)
+         .join('; ') + ';'
+      : ''
 
    return (
       <>
          <div className={styles.container}>
             <h1>potato {classNames}</h1>
          </div>
-         {children}
       </>
    )
 }
