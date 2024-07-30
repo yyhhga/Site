@@ -30,10 +30,8 @@ export const Section: FC<sectionProps> = ({
       : ''
 
    return (
-      <>
-         <div className={styles.container}>
-            <h1>potato {classNames}</h1>
-         </div>
-      </>
+      <div className={styles.container}>
+         <h1>potato {classNames}</h1>
+      </div>
    )
 }

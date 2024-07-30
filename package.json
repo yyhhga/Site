@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "docker": "docker build -t 'FEImage'; docker run -p 3000:3000 'FEImage'",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
