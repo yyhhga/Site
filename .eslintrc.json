@@ -5,6 +5,7 @@
       "plugin:storybook/recommended"
    ],
    "rules": {
-      "no-duplicate-imports": 2
+      "no-duplicate-imports": 2,
+      "react/no-unescaped-entities": "off"
    }
 }
