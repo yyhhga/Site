@@ -5,6 +5,9 @@
 This project is built with NextJS 14 with the following dependencies
 
 1. Shadcn/UI with TailwindCSS
+2. Storybook
+
+Testing is done with Vitest.
 
 Current `ToDos`
 
@@ -14,6 +17,7 @@ Current `ToDos`
 -  [ ] create footers
 -  [ ] add content
 -  [ ] add animations
+-  [ ] add cypress/playwright e2e tests
 
 # Experiments
 
