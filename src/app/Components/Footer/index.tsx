@@ -1,9 +1,5 @@
-import { FC } from "react";
+import { FC } from 'react'
 
-export const Footer: FC<string> = (item: string) => {
-    return (
-        <>
-            test
-        </>
-    )
+export const Footer: FC<any> = (item: any) => {
+   return <>test</>
 }

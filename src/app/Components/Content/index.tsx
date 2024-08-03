@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import styles from './section.module.css'
+import styles from './content.module.css'
 
-export enum sectionType {
+export enum contentType {
    Simple,
    Variant1,
    Variant2,
@@ -14,24 +14,26 @@ export type cssOptionsRecord = {
 }
 
 type sectionProps = {
-   type: sectionType
-   options?: cssOptionsRecord | undefined
+   type: contentType
+   options?: cssOptionsRecord
 }
 
-export const Section: FC<sectionProps> = ({
+export const Content: FC<sectionProps> = ({
    type,
    options,
 }) => {
    const i = 0
    const classNames = options
       ? Object.entries(options)
-         .map(([key, value]) => `${key}:${value}`)
-         .join('; ') + ';'
+           .map(
+              ([key, value]) => `${key}:${value}`,
+           )
+           .join('; ') + ';'
       : ''
 
    return (
-      <div className={styles.container}>
+      <section className={styles.container}>
          <h1>potato {classNames}</h1>
-      </div>
+      </section>
    )
 }
