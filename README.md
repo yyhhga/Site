@@ -2,6 +2,10 @@
 
 **This is a playground for testing and trying out web technologies to be deployed as some kind of blog and as a showcase of skills.**
 
+This project is built with NextJS 14 with the following dependencies
+
+1. Shadcn/UI with TailwindCSS
+
 Current `ToDos`
 
 -  [x] Setup initial repo
