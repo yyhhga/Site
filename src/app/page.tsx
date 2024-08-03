@@ -23,6 +23,7 @@ export default function Home() {
             <Content type={contentType.Simple} />
          </main>
          <Footer />
+         
       </>
    )
 }
