@@ -4,8 +4,9 @@
 
 This project is built with NextJS 14 with the following dependencies
 
-1. Shadcn/UI with TailwindCSS
-2. Storybook
+1. Shadcn/UI with TailwindCSS (based on RadixUI)
+2. Vitest
+3. Storybook
 
 Testing is done with Vitest.
 
@@ -32,3 +33,28 @@ _In no particular order_
 -  [ ] experiments with RabbitMQ/queue systems (Cloud native)
 -  [ ] sharding and faceting (DB)
 -  [ ] AI and integration to app
+
+# Setup the project
+
+Required:
+
+-  Docker
+
+1. install dependencies.
+
+   `npm i`
+
+2. Run your dev instance
+
+   `npm run dev`
+
+##### Storybook
+
+To run Storybook:
+
+`npm run storybook`
+
+# Deployment
+
+This project is deployed with Cloudflare.
+Manage Production builds in Cloudflare admin console.
