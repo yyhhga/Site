@@ -2,9 +2,16 @@
    display: flex;
    width: 100vw;
    height: 80vh;
-   background-color: lightcyan;
    align-items: center;
    justify-content: center;
    color: brown;
    border-style: solid;
+}
+
+.alternate {
+   background-color: #002d72;
+}
+
+.original {
+   background-color: #708090;
 }

@@ -6,6 +6,7 @@
    ],
    "rules": {
       "no-duplicate-imports": 2,
-      "react/no-unescaped-entities": "off"
+      "react/no-unescaped-entities": "off",
+      "unused-imports/no-unused-imports": "error"
    }
 }

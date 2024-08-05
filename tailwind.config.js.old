@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+// Experimental - delete once ts version is confirmed working
+
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}",],
   theme: {

@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 const inter = Inter({
    subsets: ['latin'],
-   variable: "--font-sans"
+   variable: '--font-sans',
 })
 
 export const metadata: Metadata = {
@@ -20,11 +20,13 @@ export default function RootLayout({
 }>) {
    return (
       <html lang="en">
-         <body className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          inter.variable
-        )}>
-         {/* className={inter.className}> */}
+         <body
+            className={cn(
+               'min-h-screen bg-background --font-sans antialiased',
+               inter.variable,
+            )}
+         >
+            {/* className={inter.className}> */}
             {children}
          </body>
       </html>
