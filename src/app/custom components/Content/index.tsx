@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils'
 export enum contentType {
    Simple,
    Alternate,
+   First,
 }
 
 type sectionProps = {
@@ -17,6 +18,7 @@ const baseTheme =
 const variants: { [key in contentType]: string } = {
    [contentType.Simple]: ' bg-backgroundSection',
    [contentType.Alternate]: 'bg-backgroundAlternate',
+   [contentType.First]: ' bg-backgroundSection h-',
 }
 
 // const shadow = 'shadow-md'
@@ -28,7 +30,7 @@ export const Content: FC<sectionProps> = ({
    children,
 }) => {
    return (
-      <section className={cn(` ${baseTheme}  bg-white `)}>
+      <section className={cn(` ${baseTheme} `)}>
          <div
             className={cn(
                `${baseTheme}  ${variants[type]} `,

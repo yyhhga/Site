@@ -27,9 +27,9 @@ const config = {
             ring: 'hsl(var(--ring))',
             background: 'hsl(var(--background))',
             foreground: 'hsl(var(--foreground))',
-            backgroundAlternate: '#E1ECF9',
-            backgroundSection: '#236AB9',
-            navBar: '#236AB9',
+            backgroundAlternate: '#f8f9fb',
+            backgroundSection: '#e1ecf7',
+            navBar: '#71a5de',
             primary: {
                DEFAULT: 'hsl(var(--primary))',
                foreground: 'hsl(var(--primary-foreground))',

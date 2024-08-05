@@ -21,11 +21,14 @@ export default function Home() {
                   <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
                      Hi.
                   </h1>
+                  <br />
                   <p>
                      I'm a software engineer and have been
-                     in the industry for 7 years. Welcome to
-                     my side of the web. This page is still
-                     in progress!
+                     in the industry for 7 years.
+                     <br />
+                     Welcome to my side of the web.
+                     <br />
+                     This page is still in progress!
                   </p>
                </div>
             </Content>
