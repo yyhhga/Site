@@ -26,7 +26,7 @@ export default function Home() {
                      I'm a software engineer and have been
                      in the industry for 7 years.
                      <br />
-                     Welcome to my side of the web.
+                     Welcome to my sides of the web.
                      <br />
                      This page is still in progress!
                      <br />
