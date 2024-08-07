@@ -1,0 +1,9 @@
+.stickTop {
+   position: sticky;
+   top: 0;
+}
+
+.navContent {
+   background-color: lightgrey;
+   color: darkslategray;
+}

@@ -1,112 +1,43 @@
-import styles from './page.module.css'
+import { Navbar } from './custom components/NavBar'
+import { Footer } from './custom components/Footer'
 import {
-   cssOptionsRecord,
-   Section,
-   sectionType,
-} from './Components/Section'
+   Content,
+   contentType,
+} from './custom components/Content'
 
 export default function Home() {
-   const properties: cssOptionsRecord = {
-      bgColor: 'white',
-      gradient: '',
-   }
    return (
-      <main className={styles.main}>
-         {/* <div className={styles.description}>
-            <p>
-               Get started by editing&nbsp;
-               <code className={styles.code}>src/app/page.tsx</code>
-            </p> */}
-         <Section
-            type={sectionType.Simple}
-            options={properties}
-         ></Section>
-         <Section type={sectionType.Simple} />
-         {/*       <div>
-      {/* //          <a
-      //             href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-      //             target="_blank"
-      //             rel="noopener noreferrer"
-      //          >
-      //             By{" "}
-      //             <Image
-      //                src="/vercel.svg"
-      //                alt="Vercel Logo"
-      //                className={styles.vercelLogo}
-      //                width={100}
-      //                height={24}
-      //                priority
-      //             />
-      //          </a>
-      //       </div>
-      //    </div>
-
-      //    <div className={styles.center}>
-      //       <Image
-      //          className={styles.logo}
-      //          src="/next.svg"
-      //          alt="Next.js Logo"
-      //          width={180}
-      //          height={37}
-      //          priority
-      //       />
-      //    </div>
-
-      //    <div className={styles.grid}>
-      //       <a
-      //          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-      //          className={styles.card}
-      //          target="_blank"
-      //          rel="noopener noreferrer"
-      //       >
-      //          <h2>
-      //             Docs <span>-&gt;</span>
-      //          </h2>
-      //          <p>Find in-depth information about Next.js features and API.</p>
-      //       </a>
-
-      //       <a
-      //          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-      //          className={styles.card}
-      //          target="_blank"
-      //          rel="noopener noreferrer"
-      //       >
-      //          <h2>
-      //             Learn <span>-&gt;</span>
-      //          </h2>
-      //          <p>
-      //             Learn about Next.js in an interactive course
-      //             with&nbsp;quizzes!
-      //          </p>
-      //       </a>
-
-      //       <a
-      //          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-      //          className={styles.card}
-      //          target="_blank"
-      //          rel="noopener noreferrer"
-      //       >
-      //          <h2>
-      //             Templates <span>-&gt;</span>
-      //          </h2>
-      //          <p>Explore starter templates for Next.js.</p>
-      //       </a>
-
-      //       <a
-      //          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-      //          className={styles.card}
-      //          target="_blank"
-      //          rel="noopener noreferrer"
-      //       >
-      //          <h2>
-      //             Deploy <span>-&gt;</span>
-      //          </h2>
-      //          <p>
-      //             Instantly deploy your Next.js site to a shareable URL with
-      //             Vercel.
-      //          </p>
-      //       </a>
-      //    </div> */}
-      </main>
+      <>
+         <main>
+            <div
+               className={
+                  'flex sticky justify-center min-h-min min-w-full top-0 bg-navBar shadow-md'
+               }
+            >
+               <Navbar />
+            </div>
+            <Content type={contentType.Simple}>
+               <div className="text-black opacity-100">
+                  <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+                     Hi.
+                  </h1>
+                  <br />
+                  <p>
+                     I'm a software engineer and have been
+                     in the industry for 7 years.
+                     <br />
+                     Welcome to my sides of the web.
+                     <br />
+                     This page is still in progress!
+                     <br />
+                  </p>
+               </div>
+            </Content>
+            <Content type={contentType.Alternate}>
+               testt
+            </Content>
+         </main>
+         <Footer />
+      </>
    )
 }
