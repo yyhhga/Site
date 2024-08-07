@@ -34,7 +34,7 @@ export default function Home() {
                </div>
             </Content>
             <Content type={contentType.Alternate}>
-               test
+               testt
             </Content>
          </main>
          <Footer />
