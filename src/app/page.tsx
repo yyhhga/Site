@@ -29,6 +29,7 @@ export default function Home() {
                      Welcome to my side of the web.
                      <br />
                      This page is still in progress!
+                     <br />
                   </p>
                </div>
             </Content>
