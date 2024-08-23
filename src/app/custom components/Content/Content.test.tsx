@@ -1,8 +1,8 @@
 import { assert, test } from 'vitest'
 import { render } from '@testing-library/react'
-import { Content, contentType } from '.'
+import { Content, ContentType } from '.'
 
 test('Page', () => {
-   render(<Content type={contentType.Simple} />)
+   render(<Content type={ContentType.SIMPLE} />)
    assert(true, 'this is a dummy test')
 })

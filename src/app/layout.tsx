@@ -1,16 +1,20 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 
 const inter = Inter({
    subsets: ['latin'],
-   variable: '--font-sans',
 })
 
 export const metadata: Metadata = {
    title: 'Bamboozle',
    description: 'Whimsical Thinking',
+}
+
+export const viewport: Viewport = {
+   width: 'device-width',
+   initialScale: 1,
 }
 
 export default function RootLayout({
@@ -22,11 +26,10 @@ export default function RootLayout({
       <html lang="en">
          <body
             className={cn(
-               'min-h-screen bg-background --font-sans antialiased',
-               inter.variable,
+               'min-h-screen bg-backgroundSection --font-sans antialiased text-sm',
+               inter.className,
             )}
          >
-            {/* className={inter.className}> */}
             {children}
          </body>
       </html>

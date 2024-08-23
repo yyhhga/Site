@@ -28,8 +28,10 @@ const config = {
             background: 'hsl(var(--background))',
             foreground: 'hsl(var(--foreground))',
             backgroundAlternate: '#f8f9fb',
-            backgroundSection: '#e1ecf7',
+            // backgroundSection: '#e1ecf7',
+            backgroundSection: 'white',
             navBar: '#71a5de',
+            footer: 'hsl(var(--footer))',
             primary: {
                DEFAULT: 'hsl(var(--primary))',
                foreground: 'hsl(var(--primary-foreground))',
