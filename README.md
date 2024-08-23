@@ -36,10 +36,6 @@ _In no particular order_
 
 # Setup the project
 
-Required:
-
--  Docker
-
 1. install dependencies.
 
    `npm i`

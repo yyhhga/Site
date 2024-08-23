@@ -42,3 +42,7 @@ next-env.d.ts
 # storybook
 *storybook.log
 /src/stories/*
+
+# obselete dockefile
+Dockerfile
+.dockerignore
