@@ -9,6 +9,14 @@ import {
    navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import Link from 'next/link'
+import { Noto_Sans } from 'next/font/google'
+
+const notos = Noto_Sans({
+   weight: '800',
+   style: 'italic',
+   variable: '--font-title',
+   subsets: ['latin'],
+})
 
 export const Navbar: FC<any> = () => {
    return (
@@ -19,9 +27,12 @@ export const Navbar: FC<any> = () => {
                <NavigationMenuItem>
                   <Link href="/" legacyBehavior passHref>
                      <NavigationMenuLink
-                        className={navigationMenuTriggerStyle()}
+                        className={
+                           (navigationMenuTriggerStyle(),
+                           notos.className)
+                        }
                      >
-                        Home
+                        yyhga
                      </NavigationMenuLink>
                   </Link>
                </NavigationMenuItem>
