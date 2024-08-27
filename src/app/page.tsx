@@ -1,12 +1,13 @@
-import { Navbar } from './custom components/NavBar'
-import { Footer } from './custom components/Footer'
+import { Navbar } from '../custom components/NavBar'
+import { Footer } from '../custom components/Footer'
 import {
    Content,
    ContentType,
-} from './custom components/Content'
+} from '../custom components/Content'
 import Image from 'next/image'
 import profilePic from '../../public/cartoon-potato-icon-png.png'
-import { Blog } from './custom components/Blog'
+import { Blog } from '../custom components/Blog'
+import Sample from '@/Blogposts/Sample.mdx'
 
 export default function Home() {
    return (
@@ -60,6 +61,7 @@ export default function Home() {
                <div className="flex-col m-auto text-black">
                   <h3>Thoughts.</h3>
                   <Blog />
+                  <Sample />
                </div>
             </Content>
          </main>
