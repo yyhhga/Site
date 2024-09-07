@@ -6,10 +6,11 @@ import {
 } from '../custom components/Content'
 import Image from 'next/image'
 import profilePic from '../../public/cartoon-potato-icon-png.png'
-import { Blog } from '../custom components/Blog'
-import Sample from '@/Blogposts/Sample.mdx'
+import { testFuse } from '@/Blogposts/fuse'
 
-export default function Home() {
+export default async function Home() {
+   //to replace with the top 10 of the index
+   const index = await testFuse()
    return (
       <>
          <main>
@@ -58,10 +59,27 @@ export default function Home() {
                </div>
             </Content>
             <Content type={ContentType.ALTERNATE}>
-               <div className="flex-col m-auto text-black">
+               <div className="flex-col m-auto text-black w-8/12">
                   <h3>Thoughts.</h3>
-                  <Blog />
-                  <Sample />
+                  <br />
+                  {index.map((blog, index) => (
+                     <div
+                        key={index}
+                        className="py-2 flex justify-between align-middle gap-2"
+                     >
+                        <div>
+                           <h3 className="text-lg font-bold">
+                              {blog.item.title}
+                           </h3>
+                           <p className="text-gray-400">
+                              {blog.item.tags}
+                           </p>
+                        </div>
+                        <div className="my-auto text-gray-400">
+                           <p>{blog.item.date}</p>
+                        </div>
+                     </div>
+                  ))}
                </div>
             </Content>
          </main>
