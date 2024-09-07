@@ -4,25 +4,27 @@ import {
 } from '@/Blogposts/IndexUtils'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
-//only for page routing
 export async function generateStaticParams() {
    const entries = await indexMdxFile()
    const paths = entries.map((entry) => ({
-      postNumber: entry.title.toString(), // Ensure `postNumber` matches the parameter in your route
+      postNumber: entry.title.toString(),
    }))
+
    return paths
-   //to generate dynamic params based on index file
 }
 
-export async function getPostContent() {
+//TODO: remove useless abstraction when page loading is synced with routing
+async function getPostContent() {
    return await extractMdxContent('Sample.mdx')
 }
 
+//TODO: use postNumber to fetch the correct file if using filename(which we really should)
 export default async function Post({
-   postNumber,
+   params,
 }: {
-   postNumber: any
+   params: { postNumber: string }
 }) {
+   const { postNumber } = params
    const { content, frontmatter } = await getPostContent()
    return (
       <div className="flex-col  w-full h-full">

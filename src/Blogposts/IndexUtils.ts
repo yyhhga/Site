@@ -4,6 +4,7 @@ import path from 'path'
 import matter from 'gray-matter'
 // to remove yaml fontmatter from output, see below. use it in getstaticprops probably, see nextjs docs
 //what about popualting initial data on page? Still cant preprocess list of files- rewrite in commonjs?
+//SOLUTION: just call it in my server components- these are pregenerated!
 /**
  * https://rivea0.github.io/blog/converting-mdx-files-with-frontmatter-into-an-mdx-component-nextjs-13
  * https://mdxjs.com/guides/frontmatter/
@@ -12,15 +13,18 @@ import matter from 'gray-matter'
 /**
  * Steps to parse index
  * 1) Read each mdx file, and build index array for fusejs
- * 2) read each file, parse the content as string and extract for the metadata
+ *
  * 3) use fuseJS indexing to read the resulting array and parse into usable index
  *
  * Alt: use nextjs/mdx import {meta} from 'sample.mdx'
  * WE need to load a whole list of files - only way through dynamic imports. Not feasible for scale.
+ * TODO:
+ *    1. Type this function and functions using them.
+ *
  */
-//use this only in getstaticsideprops - fs does not work in client component otherwise
+
 export const indexMdxFile = async () => {
-   //to change to relative filepath
+   //to change to relative filepath and set as static variable at top level scope
    const blogPostsDir = './src/Blogposts'
    let fuseArr: any[] = []
    //construct array of all filenames
@@ -33,8 +37,7 @@ export const indexMdxFile = async () => {
          fuseArr.push(fuseEntry.frontmatter)
       }
    }
-   // console.log(fuseArr)
-   //TODO: sort by date so links retain correct addresses ALT: have filepath be by filename
+   //TODO: sort by date so links retain correct addresses ALT: have filepath be by filename via appending filename in for loop
    return fuseArr
 }
 
@@ -44,6 +47,8 @@ export const indexMdxFile = async () => {
  * @param file: string that represents a mdx file raw string metadata output
  *
  * @returns the metadata as object
+ *
+ * TODO: to abstract filepath to relative
  */
 export const extractMdxContent = async (file: string) => {
    const fileContent = fs.readFileSync(
