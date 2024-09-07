@@ -1,10 +1,17 @@
-import { extractMdxContent } from '@/Blogposts/IndexUtils'
+import {
+   extractMdxContent,
+   indexMdxFile,
+} from '@/Blogposts/IndexUtils'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 //only for page routing
 export async function generateStaticParams() {
+   const entries = await indexMdxFile()
+   const paths = entries.map((entry) => ({
+      postNumber: entry.title.toString(), // Ensure `postNumber` matches the parameter in your route
+   }))
+   return paths
    //to generate dynamic params based on index file
-   return [{ postNumber: '1' }]
 }
 
 export async function getPostContent() {

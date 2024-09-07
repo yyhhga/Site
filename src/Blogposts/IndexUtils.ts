@@ -33,6 +33,8 @@ export const indexMdxFile = async () => {
          fuseArr.push(fuseEntry.frontmatter)
       }
    }
+   // console.log(fuseArr)
+   //TODO: sort by date so links retain correct addresses ALT: have filepath be by filename
    return fuseArr
 }
 
