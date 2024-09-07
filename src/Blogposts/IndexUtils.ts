@@ -46,7 +46,7 @@ export const indexMdxFile = async () => {
  *
  * @param file: string that represents a mdx file raw string metadata output
  *
- * @returns the metadata as object
+ * @returns metadata: as object
  *
  * TODO: to abstract filepath to relative
  */

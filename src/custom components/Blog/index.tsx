@@ -4,10 +4,6 @@ import { useBlogPosts } from './BlogAdapter'
 
 export const Blog = () => {
    const payload = useBlogPosts()
-   // if (payload) {
-   //    const t = payload.articles[0].id
-   // }
-
    return (
       <Content type={ContentType.SIMPLE}>
          <div className="flex m-auto text-black">

@@ -21,10 +21,6 @@ const variants: { [key in ContentType]: string } = {
    [ContentType.FIRST]: ' bg-backgroundSection ',
 }
 
-// const shadow = 'shadow-md'
-// const gradient =
-//    'bg-gradient-to-b from-black from-10% via-pink-600 via-50% to-slate-600  backdrop-blur-0'
-
 export const Content: FC<SectionProps> = ({
    type,
    children,
