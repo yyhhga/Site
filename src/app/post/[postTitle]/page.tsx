@@ -1,9 +1,9 @@
 // export const dynamicParams = true
 //TODO: explore error handling at route level with route segment config
-import { parsePath } from '@/Blogposts/mdxUtils'
 import {
    extractMdxContent,
    indexMdxFile,
+   parsePath,
 } from '@/Blogposts/mdxUtils'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
