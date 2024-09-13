@@ -2,6 +2,7 @@ import { existsSync, readdirSync } from 'node:fs'
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { parse } from 'date-fns'
 // to remove yaml fontmatter from output, see below. use it in getstaticprops probably, see nextjs docs
 //what about popualting initial data on page? Still cant preprocess list of files- rewrite in commonjs?
 //SOLUTION: just call it in my server components- these are pregenerated!
@@ -27,14 +28,18 @@ export const indexMdxFile = async () => {
    //to change to relative filepath and set as static variable at top level scope
    const blogPostsDir = './src/Blogposts'
    let fuseArr: any[] = []
+   let files: string[] = []
    //construct array of all filenames
    if (existsSync(blogPostsDir)) {
-      const files = readdirSync(blogPostsDir).filter(
+      files = readdirSync(blogPostsDir).filter(
          (file) => path.extname(file) === '.mdx',
       )
       for (const file of files) {
          const fuseEntry = await extractMdxContent(file)
-         fuseArr.push(fuseEntry.frontmatter)
+         fuseArr.push({
+            ...fuseEntry.frontmatter,
+            fileName: file,
+         })
       }
    }
    //TODO: sort by date so links retain correct addresses ALT: have filepath be by filename via appending filename in for loop
@@ -58,4 +63,11 @@ export const extractMdxContent = async (file: string) => {
    // Parse front matter using gray-matter
    const { data, content } = matter(fileContent)
    return { content: content, frontmatter: data }
+}
+export const parseDate = (date: string) => {
+   return parse(date, 'dd/MM/yyyy', new Date())
+}
+
+export const parsePath = (path: string) => {
+   return path.replace(/\.[^.]*$/, '')
 }

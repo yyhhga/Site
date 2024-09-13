@@ -1,34 +1,32 @@
+// export const dynamicParams = true
+//TODO: explore error handling at route level with route segment config
+import { parsePath } from '@/Blogposts/mdxUtils'
 import {
    extractMdxContent,
    indexMdxFile,
-} from '@/Blogposts/IndexUtils'
+} from '@/Blogposts/mdxUtils'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 export async function generateStaticParams() {
    const entries = await indexMdxFile()
    const paths = entries.map((entry) => ({
-      postNumber: entry.title.toString(),
+      postTitle: parsePath(entry.fileName.toString()),
    }))
-
    return paths
 }
 
-//TODO: remove useless abstraction when page loading is synced with routing
-async function getPostContent() {
-   return await extractMdxContent('Sample.mdx')
-}
-
-//TODO: use postNumber to fetch the correct file if using filename(which we really should)
 export default async function Post({
    params,
-}: {
-   params: { postNumber: string }
-}) {
-   const { postNumber } = params
-   const { content, frontmatter } = await getPostContent()
+}: Readonly<{
+   params: { postTitle: string }
+}>) {
+   const { postTitle: fileName } = params
+   const { content, frontmatter } = await extractMdxContent(
+      `${fileName}.mdx`,
+   )
    return (
       <div className="flex-col  w-full h-full">
-         <div className="m-auto w-1/2">
+         {/* <div className="m-auto w-1/2">
             content is {content}
             <br></br>
             meta is :
@@ -41,7 +39,7 @@ export default async function Post({
                ),
             )}
          </div>
-         <br></br>
+         <br></br> */}
          <div
             data-id="content"
             className="m-auto w-1/2 border-dashed "

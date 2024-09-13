@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import { Navbar } from '@/custom components/NavBar'
 
 const inter = Inter({
    subsets: ['latin'],
@@ -30,6 +31,13 @@ export default function RootLayout({
                inter.className,
             )}
          >
+            <div
+               className={
+                  'flex sticky justify-center min-h-min min-w-full top-0 bg-navBar shadow-md py-2 '
+               }
+            >
+               <Navbar />
+            </div>
             {children}
          </body>
       </html>

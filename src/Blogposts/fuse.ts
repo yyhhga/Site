@@ -1,6 +1,6 @@
 import Fuse from 'fuse.js'
 import data from './fuselist.json'
-import { indexMdxFile } from './IndexUtils'
+import { indexMdxFile } from './mdxUtils'
 
 export const testFuse = async () => {
    const fuseOptions = {
@@ -21,9 +21,14 @@ export const testFuse = async () => {
       keys: ['tags', 'by', 'hello'],
    }
 
-   const fuse = new Fuse(await indexMdxFile(), fuseOptions)
+   const mdxFileData = await indexMdxFile()
+   const fuse = new Fuse(mdxFileData, fuseOptions)
    // const fuse = new Fuse(await data, fuseOptions)
    // Change the pattern
    const searchPattern = 'test'
+   // return {
+   //    posts: fuse.search(searchPattern),
+   //    path: mdxFileData.path,
+   // }
    return fuse.search(searchPattern)
 }

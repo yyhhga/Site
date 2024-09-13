@@ -1,4 +1,3 @@
-import { Navbar } from '../custom components/NavBar'
 import { Footer } from '../custom components/Footer'
 import {
    Content,
@@ -7,20 +6,21 @@ import {
 import Image from 'next/image'
 import profilePic from '../../public/cartoon-potato-icon-png.png'
 import { testFuse } from '@/Blogposts/fuse'
+import { compareDesc } from 'date-fns'
+import Link from 'next/link'
+import { parseDate, parsePath } from '@/Blogposts/mdxUtils'
 
 export default async function Home() {
-   //to replace with the top 10 of the index
-   const index = await testFuse()
+   const mdxFileData = await testFuse()
+   // console.log(mdxFileData)
+   const index = mdxFileData.sort((a, b) => {
+      const dateA = parseDate(a.item.date)
+      const dateB = parseDate(b.item.date)
+      return compareDesc(dateA, dateB)
+   })
    return (
       <>
          <main>
-            <div
-               className={
-                  'flex sticky justify-center min-h-min min-w-full top-0 bg-navBar shadow-md py-2 '
-               }
-            >
-               <Navbar />
-            </div>
             <Content type={ContentType.SIMPLE}>
                <div className="flex flex-row text-black opacity-100 m-auto items-center w-3/6">
                   <div className="flex-wrap hidden md:flex ">
@@ -64,12 +64,18 @@ export default async function Home() {
                   <br />
                   {index.map((blog, index) => (
                      <div
-                        key={index}
+                        key={`${index}${blog.item.date}`}
                         className="py-2 flex justify-between align-middle gap-2"
                      >
                         <div>
                            <h3 className="text-lg font-bold">
-                              {blog.item.title}
+                              <Link
+                                 href={`/post/${parsePath(blog.item.fileName)}`}
+                                 legacyBehavior
+                                 passHref
+                              >
+                                 {blog.item.title}
+                              </Link>
                            </h3>
                            <p className="text-gray-400">
                               {blog.item.tags}
