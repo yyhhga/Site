@@ -3,6 +3,17 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { parse } from 'date-fns'
+
+type mdxMetaData = {
+   title: string
+   date: string
+   by: string
+   tags: string
+}
+
+type compiledMetaData = mdxMetaData & {
+   fileName: string
+}
 // to remove yaml fontmatter from output, see below. use it in getstaticprops probably, see nextjs docs
 //what about popualting initial data on page? Still cant preprocess list of files- rewrite in commonjs?
 //SOLUTION: just call it in my server components- these are pregenerated!
@@ -21,13 +32,14 @@ import { parse } from 'date-fns'
  * WE need to load a whole list of files - only way through dynamic imports. Not feasible for scale.
  * TODO:
  *    1. Type this function and functions using them.
+ *    2. explore running this step as a prebuild step to a json file, and use it instead of running this function.
  *
  */
 
 export const indexMdxFile = async () => {
    //to change to relative filepath and set as static variable at top level scope
    const blogPostsDir = './src/Blogposts'
-   let fuseArr: any[] = []
+   let fuseArr: compiledMetaData[] = []
    let files: string[] = []
    //construct array of all filenames
    if (existsSync(blogPostsDir)) {
@@ -39,10 +51,19 @@ export const indexMdxFile = async () => {
          fuseArr.push({
             ...fuseEntry.frontmatter,
             fileName: file,
+            title: fuseEntry.frontmatter.title,
+            date: fuseEntry.frontmatter.date,
+            by: fuseEntry.frontmatter.by,
+            tags: fuseEntry.frontmatter.tags,
          })
       }
    }
    //TODO: sort by date so links retain correct addresses ALT: have filepath be by filename via appending filename in for loop
+   // return fuseArr.sort((a, b) => {
+   //    const dateA = parseDate(a.date)
+   //    const dateB = parseDate(b.date)
+   //    return compareDesc(dateA, dateB)
+   // })
    return fuseArr
 }
 
