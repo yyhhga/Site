@@ -8,8 +8,8 @@ import profilePic from '../../../public/cartoon-potato-icon-png.png'
 export default function About() {
    return (
       <Content type={ContentType.SIMPLE}>
-         <div className="flex flex-row text-black opacity-100 m-auto items-center w-3/6">
-            <div className="flex-wrap hidden md:flex ">
+         <div className="flex flex-row opacity-100 m-auto items-center w-3/6">
+            <div className="md:flex-wrap hidden md:flex ">
                <Image src={profilePic} alt="Potato" />
             </div>
             <div className="grow">

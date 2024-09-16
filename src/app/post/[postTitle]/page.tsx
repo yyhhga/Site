@@ -25,26 +25,24 @@ export default async function Post({
       `${fileName}.mdx`,
    )
    return (
-      <div className="flex-col w-full h-full">
-         <div
-            data-id="content"
-            className="m-auto w-1/2 border-dashed pt-6"
-         >
+      <div className="flex flex-col px-6 w-full h-full pt-10 md:w-full md:px-14 ">
+         <header>
             <h1 data-id="title">{frontmatter.title}</h1>
-            <br />
+         </header>
 
-            <div data-id="tags">
-               tags: {frontmatter.tags}
-            </div>
-            <br />
-            <div
-               data-id="dateauthor"
-               className="italic text-xs"
-            >
-               {frontmatter.date} <br />
-               by: {frontmatter.by}
-            </div>
-            <div className="pt-8">
+         <div data-id="tags" className="mt-4">
+            tags: {frontmatter.tags}
+         </div>
+
+         <div
+            data-id="dateauthor"
+            className="italic text-xs mt-4"
+         >
+            {frontmatter.date} <br />
+            by: {frontmatter.by}
+         </div>
+         <div data-id="content" className="pt-8">
+            <div className="">
                {content && <MDXRemote source={content} />}
             </div>
          </div>

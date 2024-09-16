@@ -28,17 +28,17 @@ export default function RootLayout({
       <html lang="en">
          <body
             className={cn(
-               'min-h-screen bg-backgroundSection --font-sans antialiased text-sm',
+               'min-h-screen h-screen bg-backgroundSection --font-sans antialiased text-sm',
                inter.className,
             )}
          >
-            <div
+            <nav
                className={
-                  'flex sticky justify-center min-h-min min-w-full top-0 bg-navBar shadow-md  px-4 '
+                  'flex sticky justify-center min-h-min min-w-full  bg-navBar shadow-md  px-4 '
                }
             >
                <Navbar />
-            </div>
+            </nav>
             {children}
             <Footer />
          </body>
