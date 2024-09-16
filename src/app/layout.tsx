@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import { Navbar } from '@/custom components/NavBar'
+import { Footer } from '@/custom components/Footer'
 
 const inter = Inter({
    subsets: ['latin'],
@@ -33,12 +34,13 @@ export default function RootLayout({
          >
             <div
                className={
-                  'flex sticky justify-center min-h-min min-w-full top-0 bg-navBar shadow-md py-2 '
+                  'flex sticky justify-center min-h-min min-w-full top-0 bg-navBar shadow-md  px-4 '
                }
             >
                <Navbar />
             </div>
             {children}
+            <Footer />
          </body>
       </html>
    )

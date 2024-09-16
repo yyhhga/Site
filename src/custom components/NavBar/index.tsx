@@ -10,6 +10,7 @@ import {
 } from '@/components/ui/navigation-menu'
 import Link from 'next/link'
 import { Noto_Sans } from 'next/font/google'
+import { cn } from '@/lib/utils'
 
 const notos = Noto_Sans({
    weight: '800',
@@ -20,24 +21,43 @@ const notos = Noto_Sans({
 
 export const Navbar: FC<any> = () => {
    return (
-      // use another NavigationMenu for the correct contextmenu to open on hover - bug in radixui
-      <NavigationMenu>
-         <NavigationMenuList>
-            <NavigationMenu>
+      <>
+         <div
+            className={cn(
+               'mr-auto text-lg h-full self-center',
+               notos.className,
+            )}
+         >
+            <Link href="/" legacyBehavior passHref>
+               yyhga
+            </Link>
+         </div>
+         <NavigationMenu>
+            <NavigationMenuList>
                <NavigationMenuItem>
-                  <Link href="/" legacyBehavior passHref>
+                  <Link
+                     href="/about"
+                     legacyBehavior
+                     passHref
+                  >
                      <NavigationMenuLink
-                        className={
-                           (navigationMenuTriggerStyle(),
-                           notos.className)
-                        }
+                        className={navigationMenuTriggerStyle()}
                      >
-                        yyhga
+                        About
                      </NavigationMenuLink>
                   </Link>
                </NavigationMenuItem>
-            </NavigationMenu>
-         </NavigationMenuList>
-      </NavigationMenu>
+               <NavigationMenuItem>
+                  <Link href="/" legacyBehavior passHref>
+                     <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                     >
+                        Blog
+                     </NavigationMenuLink>
+                  </Link>
+               </NavigationMenuItem>
+            </NavigationMenuList>
+         </NavigationMenu>
+      </>
    )
 }

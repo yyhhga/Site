@@ -10,7 +10,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 export async function generateStaticParams() {
    const entries = await indexMdxFile()
    const paths = entries.map((entry) => ({
-      postTitle: parsePath(entry.fileName.toString()),
+      postTitle: parsePath(entry.fileName),
    }))
    return paths
 }
@@ -25,31 +25,26 @@ export default async function Post({
       `${fileName}.mdx`,
    )
    return (
-      <div className="flex-col  w-full h-full">
-         {/* <div className="m-auto w-1/2">
-            content is {content}
-            <br></br>
-            meta is :
-            {Object.entries(frontmatter).map(
-               ([key, value]) => (
-                  <>
-                     <br></br>
-                     {key} : {value}
-                  </>
-               ),
-            )}
-         </div>
-         <br></br> */}
+      <div className="flex-col w-full h-full">
          <div
             data-id="content"
-            className="m-auto w-1/2 border-dashed "
+            className="m-auto w-1/2 border-dashed pt-6"
          >
-            <div data-id="tags">{frontmatter.tags}</div>
-            <div data-id="dateauthor">
-               {frontmatter.date}
+            <h1 data-id="title">{frontmatter.title}</h1>
+            <br />
+
+            <div data-id="tags">
+               tags: {frontmatter.tags}
+            </div>
+            <br />
+            <div
+               data-id="dateauthor"
+               className="italic text-xs"
+            >
+               {frontmatter.date} <br />
                by: {frontmatter.by}
             </div>
-            <div>
+            <div className="pt-8">
                {content && <MDXRemote source={content} />}
             </div>
          </div>

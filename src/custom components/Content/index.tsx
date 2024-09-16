@@ -29,7 +29,7 @@ export const Content: FC<SectionProps> = ({
       <section className={cn(` ${baseTheme} `)}>
          <div
             className={cn(
-               `flex w-full h-full  text-default border-solid
+               `flex-col w-full h-full  text-default border-solid
                  ${variants[type]} py-3 `,
             )}
          >
