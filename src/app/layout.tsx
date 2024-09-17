@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import { Navbar } from '@/custom components/NavBar'
+import { Footer } from '@/custom components/Footer'
 
 const inter = Inter({
    subsets: ['latin'],
@@ -26,11 +28,19 @@ export default function RootLayout({
       <html lang="en">
          <body
             className={cn(
-               'min-h-screen bg-backgroundSection --font-sans antialiased text-sm',
+               'min-h-screen h-screen bg-backgroundSection --font-sans antialiased text-sm',
                inter.className,
             )}
          >
+            <nav
+               className={
+                  'flex sticky justify-center min-h-min min-w-full  bg-navBar shadow-md  px-4 '
+               }
+            >
+               <Navbar />
+            </nav>
             {children}
+            <Footer />
          </body>
       </html>
    )

@@ -21,10 +21,6 @@ const variants: { [key in ContentType]: string } = {
    [ContentType.FIRST]: ' bg-backgroundSection ',
 }
 
-// const shadow = 'shadow-md'
-// const gradient =
-//    'bg-gradient-to-b from-black from-10% via-pink-600 via-50% to-slate-600  backdrop-blur-0'
-
 export const Content: FC<SectionProps> = ({
    type,
    children,
@@ -33,7 +29,7 @@ export const Content: FC<SectionProps> = ({
       <section className={cn(` ${baseTheme} `)}>
          <div
             className={cn(
-               `flex w-full h-full  text-default border-solid
+               `flex-col w-full h-full  text-default border-solid
                  ${variants[type]} py-3 `,
             )}
          >
