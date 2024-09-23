@@ -30,7 +30,7 @@ export default async function Post({
             <h1 data-id="title">{frontmatter.title}</h1>
          </header>
 
-         <div data-id="tags" className="mt-4">
+         <div data-id="tags" className=" flex mt-4">
             tags: {frontmatter.tags}
          </div>
 
