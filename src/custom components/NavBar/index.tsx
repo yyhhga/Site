@@ -19,7 +19,7 @@ const notos = Noto_Sans({
    subsets: ['latin'],
 })
 
-export const Navbar: FC<any> = () => {
+export const Navbar: FC = () => {
    return (
       <>
          <div

@@ -5,6 +5,7 @@ import {
    indexMdxFile,
    parsePath,
 } from '@/Blogposts/mdxUtils'
+import { Badge } from '@/components/ui/badge'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 export async function generateStaticParams() {
@@ -24,24 +25,41 @@ export default async function Post({
    const { content, frontmatter } = await extractMdxContent(
       `${fileName}.mdx`,
    )
+   const tags =
+      frontmatter.tags && Array.isArray(frontmatter.tags)
+         ? frontmatter.tags
+         : [frontmatter.tags]
    return (
-      <div className="flex flex-col px-6 w-full h-full pt-10 md:w-full md:px-14 ">
+      <div className="flex flex-col px-6 w-full h-full bg-orange-400  pt-10 m-auto md:w-[70%] md:items-center ">
          <header>
             <h1 data-id="title">{frontmatter.title}</h1>
          </header>
 
-         <div data-id="tags" className="mt-4">
-            tags: {frontmatter.tags}
+         <div
+            data-id="tags"
+            className="flex space-x-4 mt-4"
+         >
+            {tags.map((tagName, index) => (
+               <Badge
+                  variant="outline"
+                  key={`${tagName}${index}`}
+               >
+                  {tagName}
+               </Badge>
+            ))}
          </div>
 
+         {/* <div
+            data-id="dateauthor"
+            className="italic text-xs mt-4 w-1/2 items-start"
+         > */}
          <div
             data-id="dateauthor"
-            className="italic text-xs mt-4"
+            className="italic text-xs mt-4 w-full"
          >
-            {frontmatter.date} <br />
-            by: {frontmatter.by}
+            published: {frontmatter.date}
          </div>
-         <div data-id="content" className="pt-8">
+         <div data-id="content" className="w-full pt-14">
             <div className="">
                {content && <MDXRemote source={content} />}
             </div>

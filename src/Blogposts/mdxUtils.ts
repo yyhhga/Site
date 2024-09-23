@@ -8,11 +8,16 @@ type mdxMetaData = {
    title: string
    date: string
    by: string
-   tags: string
+   tags: string | string[]
 }
 
 type compiledMetaData = mdxMetaData & {
    fileName: string
+}
+
+type mdxFile = {
+   content: string
+   frontmatter: mdxMetaData
 }
 // to remove yaml fontmatter from output, see below. use it in getstaticprops probably, see nextjs docs
 //what about popualting initial data on page? Still cant preprocess list of files- rewrite in commonjs?
@@ -76,14 +81,19 @@ export const indexMdxFile = async () => {
  *
  * TODO: to abstract filepath to relative
  */
-export const extractMdxContent = async (file: string) => {
+export const extractMdxContent = async (
+   file: string,
+): Promise<mdxFile> => {
    const fileContent = fs.readFileSync(
       `./src/Blogposts/${file}`,
       'utf-8',
    )
    // Parse front matter using gray-matter
    const { data, content } = matter(fileContent)
-   return { content: content, frontmatter: data }
+   return {
+      content: content,
+      frontmatter: data as mdxMetaData,
+   }
 }
 export const parseDate = (date: string) => {
    return parse(date, 'dd/MM/yyyy', new Date())

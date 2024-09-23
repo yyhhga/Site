@@ -7,6 +7,7 @@ import { testFuse } from '@/Blogposts/fuse'
 import { compareDesc } from 'date-fns'
 import Link from 'next/link'
 import { parseDate, parsePath } from '@/Blogposts/mdxUtils'
+import { Badge } from '@/components/ui/badge'
 
 export default async function Home() {
    const mdxFileData = await testFuse()
@@ -23,7 +24,7 @@ export default async function Home() {
                Engineer
             </div>
 
-            <div className="flex-col m-auto w-8/12">
+            <div className="flex-col mx-4 md:m-auto w-8/12">
                <h3>Thoughts.</h3>
                <br />
                {index.map((blog, index) => (
@@ -41,9 +42,28 @@ export default async function Home() {
                               {blog.item.title}
                            </Link>
                         </h3>
-                        <p className="text-gray-400">
-                           {blog.item.tags}
-                        </p>
+                        <div className="text-gray-400 flex space-x-2">
+                           {blog.item.tags &&
+                           Array.isArray(blog.item.tags) ? (
+                              blog.item.tags.map(
+                                 (val, index) => (
+                                    <Badge
+                                       variant="outline"
+                                       key={`${val}${index}`}
+                                    >
+                                       {val}
+                                    </Badge>
+                                 ),
+                              )
+                           ) : (
+                              <Badge
+                                 variant="outline"
+                                 key={`${blog.item.tags}${index}`}
+                              >
+                                 {blog.item.tags}
+                              </Badge>
+                           )}
+                        </div>
                      </div>
                      <div className="my-auto text-gray-400">
                         <p>{blog.item.date}</p>
