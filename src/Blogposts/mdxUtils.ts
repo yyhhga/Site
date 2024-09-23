@@ -19,12 +19,6 @@ type mdxFile = {
    content: string
    frontmatter: mdxMetaData
 }
-
-type mdxFile = {
-   content: string
-   frontmatter: mdxMetaData
-}
-
 // to remove yaml fontmatter from output, see below. use it in getstaticprops probably, see nextjs docs
 //what about popualting initial data on page? Still cant preprocess list of files- rewrite in commonjs?
 //SOLUTION: just call it in my server components- these are pregenerated!
