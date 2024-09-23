@@ -35,7 +35,10 @@ export default async function Post({
             <h1 data-id="title">{frontmatter.title}</h1>
          </header>
 
-         <div data-id="tags" className="mt-4">
+         <div
+            data-id="tags"
+            className="flex space-x-4 mt-4"
+         >
             {tags.map((tagName, index) => (
                <Badge
                   variant="outline"
@@ -56,7 +59,7 @@ export default async function Post({
          >
             published: {frontmatter.date}
          </div>
-         <div data-id="content" className="pt-14">
+         <div data-id="content" className="w-full pt-14">
             <div className="">
                {content && <MDXRemote source={content} />}
             </div>
