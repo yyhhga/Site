@@ -34,12 +34,14 @@ export default function RootLayout({
          >
             <nav
                className={
-                  'flex fixed justify-center min-h-min min-w-full  bg-navBar shadow-md  px-4 '
+                  'flex fixed justify-center min-h-min min-w-full bg-navBar shadow-md px-4 text-white z-50'
                }
             >
                <Navbar />
             </nav>
-            {children}
+            <main className="pt-16 min-h-screen text-white">
+               {children}
+            </main>
             <footer>
                <Footer />
             </footer>

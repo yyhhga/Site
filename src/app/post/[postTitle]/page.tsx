@@ -30,38 +30,43 @@ export default async function Post({
          ? frontmatter.tags
          : [frontmatter.tags]
    return (
-      <div className="flex flex-col px-6 w-full h-full bg-orange-400  pt-10 m-auto md:w-[70%] md:items-center ">
-         <header>
-            <h1 data-id="title">{frontmatter.title}</h1>
-         </header>
-
-         <div
-            data-id="tags"
-            className="flex space-x-4 mt-4"
-         >
-            {tags.map((tagName, index) => (
-               <Badge
-                  variant="outline"
-                  key={`${tagName}${index}`}
+      <div className="flex flex-col px-6 w-full min-h-full max-h-fit pb-8 m-auto md:w-[75%] md:items-center ">
+         <div className="w-full min-h-full ">
+            <div className="flex flex-col relative z-10">
+               <header className="m-auto">
+                  <h1 data-id="title">
+                     {frontmatter.title}
+                  </h1>
+               </header>
+               <div
+                  data-id="tags"
+                  className="flex space-x-4 mt-4 mx-auto"
                >
-                  {tagName}
-               </Badge>
-            ))}
-         </div>
-
-         {/* <div
-            data-id="dateauthor"
-            className="italic text-xs mt-4 w-1/2 items-start"
-         > */}
-         <div
-            data-id="dateauthor"
-            className="italic text-xs mt-4 w-full"
-         >
-            published: {frontmatter.date}
-         </div>
-         <div data-id="content" className="w-full pt-14">
-            <div className="">
-               {content && <MDXRemote source={content} />}
+                  {tags.map((tagName, index) => (
+                     <Badge
+                        variant="outline"
+                        key={`${tagName}${index}`}
+                     >
+                        {tagName}
+                     </Badge>
+                  ))}
+               </div>
+               <div
+                  data-id="dateauthor"
+                  className="italic text-xs mt-4 mx-auto "
+               >
+                  published: {frontmatter.date}
+               </div>
+               <div
+                  data-id="content"
+                  className="w-full pt-14 md:pt-2"
+               >
+                  <div className="bg-white/30 ring- backdrop-blur-lg rounded-xl shadow-md shadow-slate-400 p-4">
+                     {content && (
+                        <MDXRemote source={content} />
+                     )}
+                  </div>
+               </div>
             </div>
          </div>
       </div>

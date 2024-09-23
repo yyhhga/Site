@@ -19,7 +19,7 @@ export default async function Home() {
    return (
       <main className="h-full w-full">
          <Content type={ContentType.FIRST}>
-            <div className="m-auto my-12 text-center">
+            <div className="m-auto mb-12 text-center">
                Records of the life of a nameless Software
                Engineer
             </div>
@@ -42,7 +42,7 @@ export default async function Home() {
                               {blog.item.title}
                            </Link>
                         </h3>
-                        <div className="text-gray-400 flex space-x-2">
+                        <div className="text-gray-400 flex space-x-2 pt-2">
                            {blog.item.tags &&
                            Array.isArray(blog.item.tags) ? (
                               blog.item.tags.map(
