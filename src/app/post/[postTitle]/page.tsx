@@ -42,10 +42,10 @@ export default async function Post({
                   data-id="tags"
                   className="flex space-x-4 mt-4 mx-auto"
                >
-                  {tags.map((tagName, index) => (
+                  {tags.map((tagName) => (
                      <Badge
                         variant="outline"
-                        key={`${tagName}${index}`}
+                        key={`${tagName}`}
                      >
                         {tagName}
                      </Badge>
@@ -55,13 +55,13 @@ export default async function Post({
                   data-id="dateauthor"
                   className="italic text-xs mt-4 mx-auto "
                >
-                  published: {frontmatter.date}
+                  published on {frontmatter.date}
                </div>
                <div
                   data-id="content"
                   className="w-full pt-14 md:pt-2"
                >
-                  <div className="bg-white/30 ring- backdrop-blur-lg rounded-xl shadow-md shadow-slate-400 p-4">
+                  <div className="bg-white/30 min-h-[65vh] backdrop-blur-lg rounded-xl shadow-md shadow-slate-400 p-4">
                      {content && (
                         <MDXRemote source={content} />
                      )}
