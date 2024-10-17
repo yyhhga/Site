@@ -30,17 +30,17 @@ export default async function Post({
          ? frontmatter.tags
          : [frontmatter.tags]
    return (
-      <div className="flex flex-col px-6 w-full min-h-full max-h-fit pb-8 m-auto md:w-[75%] md:items-center ">
+      <div className="flex flex-col px-6 w-full min-h-full max-h-fit m-auto md:w-[75%] md:items-center ">
          <div className="w-full min-h-full ">
             <div className="flex flex-col relative z-10">
-               <header className="m-auto">
+               <header className="m-auto text-center">
                   <h1 data-id="title">
                      {frontmatter.title}
                   </h1>
                </header>
                <div
                   data-id="tags"
-                  className="flex space-x-4 mt-4 mx-auto"
+                  className="flex items-center justify-center flex-wrap gap-2 mt-4 mx-auto max-w-full"
                >
                   {tags.map((tagName) => (
                      <Badge
@@ -61,7 +61,7 @@ export default async function Post({
                   data-id="content"
                   className="w-full pt-14 md:pt-2"
                >
-                  <div className="min-h-[65vh] bg-slate-400/20 backdrop-blur rounded-xl p-4 border-solid border-[1px] shadow-md border-white/20">
+                  <div className="min-h-[65vh] bg-slate-400/10 backdrop-blur-3xl rounded-xl p-4 border-solid border-[1px] shadow-md border-white/20">
                      {content && (
                         <MDXRemote source={content} />
                      )}
