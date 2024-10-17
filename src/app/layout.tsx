@@ -28,23 +28,23 @@ export default function RootLayout({
       <html lang="en">
          <body
             className={cn(
-               'min-h-screen h-screen bg-backgroundSection --font-sans antialiased text-sm',
+               'min-h-screen h-screen bg-backgroundSection --font-sans antialiased text-sm text-default',
                inter.className,
             )}
          >
             <nav
                className={
-                  'flex fixed justify-center min-h-min min-w-full bg-navBar shadow-md px-4 text-white z-50'
+                  'flex fixed justify-center min-h-min min-w-full bg-navBar shadow-md px-4 z-50'
                }
             >
                <Navbar />
             </nav>
-            <main className="pt-16 min-h-screen text-white">
+            <main className="pt-16 min-h-screen">
                {children}
             </main>
-            <footer>
+            {/* <footer>
                <Footer />
-            </footer>
+            </footer> */}
          </body>
       </html>
    )
