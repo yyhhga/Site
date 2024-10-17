@@ -34,7 +34,7 @@ export default function RootLayout({
          >
             <nav
                className={
-                  'flex fixed justify-center min-h-min min-w-full bg-navBar b px-4 z-50'
+                  'flex fixed justify-center min-h-min min-w-full bg-navBar px-4 z-50'
                }
             >
                <Navbar />

@@ -13,7 +13,7 @@ export default function About() {
                <Image
                   src={profilePic}
                   alt="me"
-                  className="w-1/2 md:w-1/3 h-auto rounded-2xl"
+                  className="w-1/2 md:w-1/3 h-auto rounded-3xl"
                />
             </div>
             <div>
@@ -43,10 +43,9 @@ export default function About() {
                   Diploma in IT course at Singapore
                   Polytechnic, where I found myself loving
                   the whole tech ecosystem and its
-                  possibilies- and I've been enamoured ever
-                  since.
-               </p>
-               <p>
+                  possibilities- and I've been enamoured
+                  ever since.
+                  <br />
                   Since then, I went on to the military and
                   to Uni, graduating from University of
                   Glasgow/Singapore Institute of Technology
@@ -60,12 +59,6 @@ export default function About() {
                   exploring travel, gym and coffee.
                   Previously I have done kendo, karate,
                   swimming among others.
-               </p>
-               <p>
-                  I'm passionate about melding business and
-                  technical fundamentals - I believe that
-                  the bridge between the 2 disciplines is
-                  required for successful outcomes.
                </p>
                <br />
                <b>

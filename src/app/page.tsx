@@ -31,7 +31,7 @@ export default async function Home() {
                         className="py-2 mb-2 flex justify-between align-middle"
                      >
                         <div>
-                           <h3 className="text-lg font-bold">
+                           <h3 className="text-lg font-bold md:hover:underline">
                               <Link
                                  href={`/post/${parsePath(blog.item.fileName)}`}
                                  legacyBehavior
