@@ -1,14 +1,13 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import { Navbar } from '@/custom components/NavBar'
-import { Footer } from '@/custom components/Footer'
 
-const inter = Inter({
+const openSans = Open_Sans({
    subsets: ['latin'],
+   display: 'swap',
 })
-
 export const metadata: Metadata = {
    title: 'Bamboozle',
    description: 'Whimsical Thinking',
@@ -28,8 +27,8 @@ export default function RootLayout({
       <html lang="en">
          <body
             className={cn(
-               'min-h-screen h-screen bg-backgroundSection --font-sans antialiased text-sm text-default',
-               inter.className,
+               'min-h-screen max-h-fit bg-gradient-to-br from-backgroundSection via-slate-800 to-stone-900 backdrop-blur-md antialiased text-base text-default',
+               openSans.className,
             )}
          >
             <nav

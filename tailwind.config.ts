@@ -20,7 +20,10 @@ const config = {
          },
       },
       extend: {
-         textColor: { default: '#dedfe6' },
+         textColor: {
+            default: '#dedfe6',
+            navHighlight: '#a9bde4',
+         },
          colors: {
             border: 'hsl(var(--border))',
             input: 'hsl(var(--input))',

@@ -16,7 +16,7 @@ const baseTheme =
    'flex w-full h-[50vh] text-default border-solid'
 
 const variants: { [key in ContentType]: string } = {
-   [ContentType.SIMPLE]: ' bg-backgroundSection',
+   [ContentType.SIMPLE]: ' bg-transparent',
    [ContentType.ALTERNATE]: 'bg-backgroundAlternate',
    [ContentType.FIRST]: ' bg-backgroundSection ',
 }

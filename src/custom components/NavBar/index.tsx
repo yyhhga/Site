@@ -24,7 +24,7 @@ export const Navbar: FC = () => {
       <>
          <div
             className={cn(
-               'mr-auto text-lg h-full self-center',
+               'mr-auto text-lg h-full self-center hover:text-navHighlight',
                notos.className,
             )}
          >

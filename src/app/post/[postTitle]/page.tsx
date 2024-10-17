@@ -61,7 +61,7 @@ export default async function Post({
                   data-id="content"
                   className="w-full pt-14 md:pt-2"
                >
-                  <div className="bg-white/30 min-h-[65vh] backdrop-blur-lg rounded-xl shadow-md shadow-slate-400 p-4">
+                  <div className="min-h-[65vh] bg-slate-400/20 backdrop-blur rounded-xl p-4 border-solid border-[1px] shadow-md border-white/20">
                      {content && (
                         <MDXRemote source={content} />
                      )}
