@@ -31,7 +31,7 @@ export default async function Post({
          ? frontmatter.tags
          : [frontmatter.tags]
    return (
-      <div className="flex flex-col px-6 w-full min-h-full max-h-fit m-auto md:w-[75%] md:items-center ">
+      <div className="flex flex-col px-6 w-full min-h-full max-h-fit m-auto md:w-[60%] md:items-center ">
          <div className="w-full min-h-full ">
             <div className="flex flex-col relative z-10">
                <header className="m-auto text-center">
@@ -62,13 +62,15 @@ export default async function Post({
                   data-id="content"
                   className="w-full pt-14 md:pt-2"
                >
-                  <div className="min-h-[65vh] bg-slate-400/10 backdrop-blur-3xl rounded-xl p-4 border-solid border-[1px] shadow-md border-white/20">
-                     {content && (
-                        <MDXRemote
-                           source={content}
-                           components={{ BlogImage }}
-                        />
-                     )}
+                  <div className="min-h-[65vh] bg-black/15 backdrop-blur-3xl rounded-xl p-4 border-solid border-[0.5px] border-white/20 shadow-md shadow-gray-600/30 ">
+                     <div className="w-[90ch] h-max m-auto justify-center">
+                        {content && (
+                           <MDXRemote
+                              source={content}
+                              components={{ BlogImage }}
+                           />
+                        )}
+                     </div>
                   </div>
                </div>
             </div>
