@@ -52,7 +52,6 @@ export const indexMdxFile = async () => {
          (file) => path.extname(file) === '.mdx',
       )
       for (const file of files) {
-         console.log('myfiles!' + file)
          const fuseEntry = await extractMdxContent(file)
          fuseArr.push({
             ...fuseEntry.frontmatter,
@@ -66,7 +65,6 @@ export const indexMdxFile = async () => {
    //    const dateB = parseDate(b.date)
    //    return compareDesc(dateA, dateB)
    // })
-   console.log('is this run?')
    return fuseArr
 }
 

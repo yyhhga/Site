@@ -31,7 +31,6 @@ export const searchFuse = async () => {
    //    posts: fuse.search(searchPattern),
    //    path: mdxFileData.path,
    // }
-   console.log('this was run!' + mdxFileData)
    return fuse.search(searchPattern)
 }
 
@@ -51,5 +50,5 @@ const buildMetaDataIndex = async (
 }
 
 searchFuse()
-   .then((result) => console.log(result))
+   // .then((result) => console.log(result))
    .catch((err) => console.error(err))

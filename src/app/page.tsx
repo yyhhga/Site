@@ -19,7 +19,7 @@ export default async function Home() {
       return compareDesc(dateA, dateB)
    })
    return (
-      <main className="h-full w-full">
+      <article className="h-full w-full">
          <Content type={ContentType.SIMPLE}>
             <div className="flex-col px-4 w-full md:m-auto md:w-8/12">
                <h1>Thoughts.</h1>
@@ -75,6 +75,6 @@ export default async function Home() {
                ))}
             </div>
          </Content>
-      </main>
+      </article>
    )
 }

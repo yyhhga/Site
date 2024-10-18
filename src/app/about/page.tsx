@@ -4,7 +4,7 @@ import {
 } from '@/custom components/Content'
 import Image from 'next/image'
 
-import profilePic from '../../../public/hj.jpeg'
+import profilePic from '../../../public/images/hj.jpeg'
 export default function About() {
    return (
       <Content type={ContentType.SIMPLE}>

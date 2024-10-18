@@ -6,6 +6,7 @@ import {
    parsePath,
 } from '@/Blogposts/mdxUtils'
 import { Badge } from '@/components/ui/badge'
+import { BlogImage } from '@/custom components/BlogImage'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 export async function generateStaticParams() {
@@ -63,7 +64,10 @@ export default async function Post({
                >
                   <div className="min-h-[65vh] bg-slate-400/10 backdrop-blur-3xl rounded-xl p-4 border-solid border-[1px] shadow-md border-white/20">
                      {content && (
-                        <MDXRemote source={content} />
+                        <MDXRemote
+                           source={content}
+                           components={{ BlogImage }}
+                        />
                      )}
                   </div>
                </div>

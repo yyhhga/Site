@@ -3,7 +3,6 @@ import { Open_Sans } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
 import { Navbar } from '@/custom components/NavBar'
-import { Footer } from '@/custom components/Footer'
 
 const openSans = Open_Sans({
    subsets: ['latin'],
@@ -34,7 +33,7 @@ export default function RootLayout({
          >
             <nav
                className={
-                  'flex fixed justify-center min-h-min min-w-full bg-navBar px-4 z-50'
+                  'flex sticky top-0 justify-center min-h-min min-w-full bg-[#1E293A] bg-gradient-to-r from-slate-800 to-stone-900 backdrop-blur-3xl shadow-md shadow-grey-900 px-4 z-50'
                }
             >
                <Navbar />
