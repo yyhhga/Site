@@ -63,7 +63,7 @@ export default async function Post({
                   className="w-full pt-14 md:pt-2"
                >
                   <div className="min-h-[65vh] bg-black/15 backdrop-blur-3xl rounded-xl p-4 border-solid border-[0.5px] border-white/20 shadow-md shadow-gray-600/30 ">
-                     <div className="w-[90ch] h-max m-auto justify-center">
+                     <div className="max-w-[90ch] h-max m-auto justify-center">
                         {content && (
                            <MDXRemote
                               source={content}
