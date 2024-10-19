@@ -42,10 +42,17 @@ next-env.d.ts
 # storybook
 *storybook.log
 /src/stories/*
+.storybook/
 
 # obselete dockefile
 Dockerfile
 .dockerignore
 
+# strapi boilerplate
+/src/custom components/Blog
+
 #IDE
 /.vscode/*
+
+vitest.config.ts
+src/custom components/Content/Content.test.tsx

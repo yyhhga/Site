@@ -1,26 +1,21 @@
-## Alpha - a proving ground for web dev
+## My Personal Website
 
-**This is a playground for testing and trying out web technologies to be deployed as some kind of blog and as a showcase of skills.**
+**Personal site on <https://seahj.com>**
 
-This project is built with NextJS 14 with the following dependencies
-
-1. Shadcn/UI with TailwindCSS (based on RadixUI)
-2. Vitest
-3. Storybook
-
-Testing is done with Vitest.
+This project is built with NextJS 14.
+Blogposts are managed with MDX files.
 
 Current `ToDos`
 
 -  [x] Setup initial repo
 -  [x] Setup initial tooling i.e docker, linters, tests, storybook
--  [ ] create headers
--  [ ] create footers
+-  [x] create headers
+-  [x] create footers
 -  [ ] add content
--  [ ] add animations
--  [ ] add cypress/playwright e2e tests
+-  [ ] add searchbar functionality for posts
+-  [ ] add external image hosting
 
-# Experiments
+# Wishlist Projs
 
 _In no particular order_
 
@@ -44,13 +39,6 @@ _In no particular order_
 
    `npm run dev`
 
-##### Storybook
-
-To run Storybook:
-
-`npm run storybook`
-
 # Deployment
 
 This project is deployed with Cloudflare.
-Manage Production builds in Cloudflare admin console.
