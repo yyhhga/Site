@@ -1,6 +1,6 @@
 ## My Personal Website
 
-** Personal site on seahj.com **
+** Personal site on <https://seahj.com> **
 
 This project is built with NextJS 14.
 Blogposts are managed with MDX files.
