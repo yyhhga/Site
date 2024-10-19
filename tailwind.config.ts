@@ -20,17 +20,22 @@ const config = {
          },
       },
       extend: {
-         textColor: { default: 'black' },
+         textColor: {
+            default: '#dedfe6',
+            navHighlight: '#a9bde4',
+         },
          colors: {
             border: 'hsl(var(--border))',
             input: 'hsl(var(--input))',
             ring: 'hsl(var(--ring))',
-            background: 'hsl(var(--background))',
+            // background: 'hsl(var(--background))',
             foreground: 'hsl(var(--foreground))',
+            background: 'white',
             backgroundAlternate: '#f8f9fb',
             // backgroundSection: '#e1ecf7',
-            backgroundSection: 'white',
-            navBar: '#71a5de',
+            backgroundSection: '#2b303a',
+            // navBar: '#71a5de',
+            navBar: '#2b303a',
             footer: 'hsl(var(--footer))',
             primary: {
                DEFAULT: 'hsl(var(--primary))',

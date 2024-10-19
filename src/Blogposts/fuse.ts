@@ -1,8 +1,9 @@
 import Fuse from 'fuse.js'
-import data from './fuselist.json'
-import { indexMdxFile } from './mdxUtils'
+// import data from './fuselist.json'
+import { CompiledMetaData, indexMdxFile } from './mdxUtils'
 
-export const testFuse = async () => {
+//TODO: replace indexMdxFile to json import when buildMetaDataIndex is complete
+export const searchFuse = async () => {
    const fuseOptions = {
       // isCaseSensitive: false,
       // includeScore: false,
@@ -32,3 +33,22 @@ export const testFuse = async () => {
    // }
    return fuse.search(searchPattern)
 }
+
+/**
+ * Index and Writes to file from indexed data in fuse.js, saved in local dir
+ *
+ * @param metaData - compiled metadata from mdx files
+ *
+ * @returns status - status to display if write is successful.
+ */
+const buildMetaDataIndex = async (
+   metaData: CompiledMetaData[],
+): Promise<number> => {
+   const mdxFileData = await indexMdxFile()
+
+   return 1
+}
+
+searchFuse()
+   // .then((result) => console.log(result))
+   .catch((err) => console.error(err))

@@ -4,20 +4,20 @@ import path from 'path'
 import matter from 'gray-matter'
 import { parse } from 'date-fns'
 
-type mdxMetaData = {
+type MdxMetaData = {
    title: string
    date: string
    by: string
    tags: string | string[]
 }
 
-type compiledMetaData = mdxMetaData & {
+export type CompiledMetaData = MdxMetaData & {
    fileName: string
 }
 
-type mdxFile = {
+type MdxFile = {
    content: string
-   frontmatter: mdxMetaData
+   frontmatter: MdxMetaData
 }
 // to remove yaml fontmatter from output, see below. use it in getstaticprops probably, see nextjs docs
 //what about popualting initial data on page? Still cant preprocess list of files- rewrite in commonjs?
@@ -36,15 +36,15 @@ type mdxFile = {
  * Alt: use nextjs/mdx import {meta} from 'sample.mdx'
  * WE need to load a whole list of files - only way through dynamic imports. Not feasible for scale.
  * TODO:
- *    1. Type this function and functions using them.
+ *    1. Type this function and functions using them.(Done)
  *    2. explore running this step as a prebuild step to a json file, and use it instead of running this function.
  *
  */
 
 export const indexMdxFile = async () => {
-   //to change to relative filepath and set as static variable at top level scope
+   //TODO: to change to relative filepath and set as static variable at top level scope
    const blogPostsDir = './src/Blogposts'
-   let fuseArr: compiledMetaData[] = []
+   let fuseArr: CompiledMetaData[] = []
    let files: string[] = []
    //construct array of all filenames
    if (existsSync(blogPostsDir)) {
@@ -56,14 +56,10 @@ export const indexMdxFile = async () => {
          fuseArr.push({
             ...fuseEntry.frontmatter,
             fileName: file,
-            title: fuseEntry.frontmatter.title,
-            date: fuseEntry.frontmatter.date,
-            by: fuseEntry.frontmatter.by,
-            tags: fuseEntry.frontmatter.tags,
          })
       }
    }
-   //TODO: sort by date so links retain correct addresses ALT: have filepath be by filename via appending filename in for loop
+   //TODO: sort by date so links retain correct order
    // return fuseArr.sort((a, b) => {
    //    const dateA = parseDate(a.date)
    //    const dateB = parseDate(b.date)
@@ -83,7 +79,7 @@ export const indexMdxFile = async () => {
  */
 export const extractMdxContent = async (
    file: string,
-): Promise<mdxFile> => {
+): Promise<MdxFile> => {
    const fileContent = fs.readFileSync(
       `./src/Blogposts/${file}`,
       'utf-8',
@@ -92,9 +88,10 @@ export const extractMdxContent = async (
    const { data, content } = matter(fileContent)
    return {
       content: content,
-      frontmatter: data as mdxMetaData,
+      frontmatter: data as MdxMetaData,
    }
 }
+
 export const parseDate = (date: string) => {
    return parse(date, 'dd/MM/yyyy', new Date())
 }

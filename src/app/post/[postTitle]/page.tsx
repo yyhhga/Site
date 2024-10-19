@@ -6,6 +6,7 @@ import {
    parsePath,
 } from '@/Blogposts/mdxUtils'
 import { Badge } from '@/components/ui/badge'
+import { BlogImage } from '@/custom components/BlogImage'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 export async function generateStaticParams() {
@@ -30,38 +31,48 @@ export default async function Post({
          ? frontmatter.tags
          : [frontmatter.tags]
    return (
-      <div className="flex flex-col px-6 w-full h-full bg-orange-400  pt-10 m-auto md:w-[70%] md:items-center ">
-         <header>
-            <h1 data-id="title">{frontmatter.title}</h1>
-         </header>
-
-         <div
-            data-id="tags"
-            className="flex space-x-4 mt-4"
-         >
-            {tags.map((tagName, index) => (
-               <Badge
-                  variant="outline"
-                  key={`${tagName}${index}`}
+      <div className="flex flex-col px-6 w-full min-h-full max-h-fit m-auto md:w-[60%] md:items-center ">
+         <div className="w-full min-h-full ">
+            <div className="flex flex-col relative z-10">
+               <header className="m-auto text-center">
+                  <h1 data-id="title">
+                     {frontmatter.title}
+                  </h1>
+               </header>
+               <div
+                  data-id="tags"
+                  className="flex items-center justify-center flex-wrap gap-2 mt-4 mx-auto max-w-full"
                >
-                  {tagName}
-               </Badge>
-            ))}
-         </div>
-
-         {/* <div
-            data-id="dateauthor"
-            className="italic text-xs mt-4 w-1/2 items-start"
-         > */}
-         <div
-            data-id="dateauthor"
-            className="italic text-xs mt-4 w-full"
-         >
-            published: {frontmatter.date}
-         </div>
-         <div data-id="content" className="w-full pt-14">
-            <div className="">
-               {content && <MDXRemote source={content} />}
+                  {tags.map((tagName) => (
+                     <Badge
+                        variant="outline"
+                        key={`${tagName}`}
+                     >
+                        {tagName}
+                     </Badge>
+                  ))}
+               </div>
+               <div
+                  data-id="dateauthor"
+                  className="italic text-xs mt-4 mx-auto "
+               >
+                  published on {frontmatter.date}
+               </div>
+               <div
+                  data-id="content"
+                  className="w-full pt-14 md:pt-2"
+               >
+                  <div className="min-h-[65vh] bg-black/15 backdrop-blur-3xl rounded-xl p-4 border-solid border-[0.5px] border-white/20 shadow-md shadow-gray-600/30 ">
+                     <div className="max-w-[90ch] h-max m-auto justify-center">
+                        {content && (
+                           <MDXRemote
+                              source={content}
+                              components={{ BlogImage }}
+                           />
+                        )}
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
       </div>

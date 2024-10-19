@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC } from 'react'
 import { cn } from '@/lib/utils'
 
 export enum ContentType {
@@ -7,23 +7,23 @@ export enum ContentType {
    FIRST,
 }
 
-type SectionProps = {
+type SectionProps = React.HTMLAttributes<HTMLDivElement> & {
    type: ContentType
-   children?: ReactNode
+   // children?: ReactNode dont need to put children, we inherit all div applicable  props including onclick
 }
 
-const baseTheme =
-   'flex w-full h-[50vh] text-default border-solid'
+const baseTheme = 'flex w-full text-default border-solid'
 
 const variants: { [key in ContentType]: string } = {
-   [ContentType.SIMPLE]: ' bg-backgroundSection',
-   [ContentType.ALTERNATE]: 'bg-backgroundAlternate',
-   [ContentType.FIRST]: ' bg-backgroundSection ',
+   [ContentType.SIMPLE]: ' bg-transparent min-h-full',
+   [ContentType.ALTERNATE]:
+      'bg-backgroundAlternate h-[50vh]',
+   [ContentType.FIRST]: ' bg-backgroundSection h-[50vh] ',
 }
 
 export const Content: FC<SectionProps> = ({
    type,
-   children,
+   ...props
 }) => {
    return (
       <section className={cn(` ${baseTheme} `)}>
@@ -32,9 +32,8 @@ export const Content: FC<SectionProps> = ({
                `flex-col w-full h-full  text-default border-solid
                  ${variants[type]} py-3 `,
             )}
-         >
-            {children}
-         </div>
+            {...props}
+         ></div>
       </section>
    )
 }
