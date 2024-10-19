@@ -39,13 +39,6 @@ _In no particular order_
 
    `npm run dev`
 
-##### Storybook
-
-To run Storybook:
-
-`npm run storybook`
-
 # Deployment
 
 This project is deployed with Cloudflare.
-Manage Production builds in Cloudflare admin console.
