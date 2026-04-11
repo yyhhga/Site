@@ -41,7 +41,7 @@ type MdxFile = {
  *
  */
 
-export const indexMdxFile = async () => {
+export const fetchOldIndexMdxFile = async () => {
    //TODO: to change to relative filepath and set as static variable at top level scope
    const blogPostsDir = './src/Blogposts'
    let fuseArr: CompiledMetaData[] = []
@@ -90,6 +90,33 @@ export const extractMdxContent = async (
       content: content,
       frontmatter: data as MdxMetaData,
    }
+}
+
+export const indexMdxFile = async () => {
+   //TODO: to change to relative filepath and set as static variable at top level scope
+   const blogPostsDir = './src/Blogposts'
+   let fuseArr: CompiledMetaData[] = []
+   let files: string[] = []
+   //construct array of all filenames
+   if (existsSync(blogPostsDir)) {
+      files = readdirSync(blogPostsDir).filter(
+         (file) => path.extname(file) === '.mdx',
+      )
+      for (const file of files) {
+         const fuseEntry = await extractMdxContent(file)
+         fuseArr.push({
+            ...fuseEntry.frontmatter,
+            fileName: file,
+         })
+      }
+   }
+   //TODO: sort by date so links retain correct order
+   // return fuseArr.sort((a, b) => {
+   //    const dateA = parseDate(a.date)
+   //    const dateB = parseDate(b.date)
+   //    return compareDesc(dateA, dateB)
+   // })
+   return fuseArr
 }
 
 export const parseDate = (date: string) => {

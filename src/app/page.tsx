@@ -6,13 +6,19 @@ import {
 import { searchFuse } from '@/Blogposts/fuse'
 import { compareDesc } from 'date-fns'
 import Link from 'next/link'
-import { parseDate, parsePath } from '@/Blogposts/mdxUtils'
+import {
+   fetchOldIndexMdxFile,
+   parseDate,
+   parsePath,
+} from '@/Blogposts/mdxUtils'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 
 //TODO: when indexAndSearchFuse() can be used prebuild step, import json directly instead.
 export default async function Home() {
-   const mdxFileData = await searchFuse()
+   const mdxIndex = await fetchOldIndexMdxFile()
+   const mdxFileData = await searchFuse(mdxIndex, ' ')
+
    const index = mdxFileData.sort((a, b) => {
       const dateA = parseDate(a.item.date)
       const dateB = parseDate(b.item.date)

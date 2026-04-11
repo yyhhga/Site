@@ -1,9 +1,15 @@
 import Fuse from 'fuse.js'
 // import data from './fuselist.json'
-import { CompiledMetaData, indexMdxFile } from './mdxUtils'
+import {
+   CompiledMetaData,
+   fetchOldIndexMdxFile,
+} from './mdxUtils'
 
 //TODO: replace indexMdxFile to json import when buildMetaDataIndex is complete
-export const searchFuse = async () => {
+export const searchFuse = async (
+   mdxMetaData: CompiledMetaData[],
+   searchTerm: string,
+) => {
    const fuseOptions = {
       // isCaseSensitive: false,
       // includeScore: false,
@@ -22,16 +28,16 @@ export const searchFuse = async () => {
       keys: ['tags', 'by', 'hello'],
    }
 
-   const mdxFileData = await indexMdxFile()
+   const mdxFileData = mdxMetaData
    const fuse = new Fuse(mdxFileData, fuseOptions)
    // const fuse = new Fuse(await data, fuseOptions)
    // Change the pattern
-   const searchPattern = 'test'
+   // const searchPattern = 'test'
    // return {
    //    posts: fuse.search(searchPattern),
    //    path: mdxFileData.path,
    // }
-   return fuse.search(searchPattern)
+   return fuse.search(searchTerm)
 }
 
 /**
@@ -44,11 +50,12 @@ export const searchFuse = async () => {
 const buildMetaDataIndex = async (
    metaData: CompiledMetaData[],
 ): Promise<number> => {
-   const mdxFileData = await indexMdxFile()
-
+   const mdxFileData = await fetchOldIndexMdxFile()
+   // const fuseIndex = Fuse.createIndex(mdxFileData)
    return 1
 }
 
-searchFuse()
-   // .then((result) => console.log(result))
-   .catch((err) => console.error(err))
+// const index = await oldIndexMdxFile()
+// searchFuse(oldIndexMdxFile(), "")
+//    // .then((result) => console.log(result))
+//    .catch((err) => console.error(err))
