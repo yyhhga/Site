@@ -2,7 +2,7 @@
 //TODO: explore error handling at route level with route segment config
 import {
    extractMdxContent,
-   oldIndexMdxFile,
+   fetchOldIndexMdxFile,
    parsePath,
 } from '@/Blogposts/mdxUtils'
 import { Badge } from '@/components/ui/badge'
@@ -10,7 +10,7 @@ import { BlogImage } from '@/custom components/BlogImage'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
 export async function generateStaticParams() {
-   const entries = await oldIndexMdxFile()
+   const entries = await fetchOldIndexMdxFile()
    const paths = entries.map((entry) => ({
       postTitle: parsePath(entry.fileName),
    }))
